@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>I'm Sorry, Kanishka</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  background: linear-gradient(135deg,#ff9a9e,#fad0c4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.card {
+  background: rgba(255,255,255,0.25);
+  padding: 40px;
+  max-width: 460px;
+  text-align: center;
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+  color: #7a003c;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+  z-index: 10;
+}
+
+h1 {
+  font-size: 2rem;
+  margin-bottom: 18px;
+}
+
+p {
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+button {
+  margin-top: 25px;
+  padding: 12px 30px;
+  border-radius: 24px;
+  border: none;
+  background: #ff4f81;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  transform: scale(1.08);
+}
+
+.reply {
+  margin-top: 18px;
+  font-weight: bold;
+  display: none;
+}
+
+.heart {
+  position: absolute;
+  font-size: 22px;
+  animation: float 7s linear infinite;
+  opacity: 0.8;
+}
+
+@keyframes float {
+  from {
+    transform: translateY(110vh);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(-10vh);
+    opacity: 1;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+  <h1>I'm Sorry, Kanishka 🥺</h1>
+
+  <p>
+    Hi… I know this is unexpected, but I wanted to apologize sincerely for what happened that day.
+    It was my mistake, and I completely understand why you reacted the way you did.
+    I meant no harm or disrespect.
+  </p>
+
+  <button onclick="accepted()">I understand 💗</button>
+
+  <div class="reply" id="reply">
+    Thank you for reading this 🫶
+  </div>
+</div>
+
+<script>
+function accepted() {
+  document.getElementById("reply").style.display = "block";
+}
+
+// floating hearts
+setInterval(() => {
+  const heart = document.createElement("div");
+  heart.className = "heart";
+
+  const hearts = ["💖","💗","💕","❤️"];
+  heart.innerHTML = hearts[Math.floor(Math.random() * hearts.length)];
+
+  heart.style.left = Math.random() * 100 + "vw";
+  heart.style.fontSize = Math.random() * 26 + 14 + "px";
+
+  document.body.appendChild(heart);
+
+  setTimeout(() => {
+    heart.remove();
+  }, 7000);
+}, 500);
+</script>
+
+</body>
+</html>
